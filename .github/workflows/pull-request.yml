@@ -12,7 +12,7 @@ jobs:
     - uses: stevenleadbeater/kotlin-kover-action@main
       id: kover-tests
       with:
-        coverage-threshold: '80'
+        coverage-threshold: 80
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Check coverage
       if: ${{(steps.kover-tests.outputs.line_coverage) < 80}}
