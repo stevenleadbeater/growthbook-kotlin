@@ -15,6 +15,6 @@ jobs:
         coverage-threshold: 80
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Check coverage
-      if: ${{(steps.kover-tests.outputs.line_coverage) < 80}}
+      if: ${{(steps.kover-tests.outputs.line-coverage) < 80}}
       shell: bash
-      run: exit "Line coverage expected to be > 80 but was ${{steps.kover-tests.outputs.line_coverage}}"
+      run: exit "Line coverage expected to be > 80 but was ${{steps.kover-tests.outputs.line-coverage}}"
