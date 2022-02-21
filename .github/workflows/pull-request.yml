@@ -13,6 +13,7 @@ jobs:
       id: kover-tests
       with:
         coverage-threshold: '80'
+        repo-toek: ${{ secrets.GITHUB_TOKEN }}
     - name: Check coverage
       if: ${{(steps.kover-tests.outputs.line_coverage) < 80}}
       shell: bash
