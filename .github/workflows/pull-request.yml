@@ -10,5 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: stevenleadbeater/kotlin-kover-action@main
+      id: kover-tests
       with:
         coverage-threshold: '80'
+    - name: Check coverage
+      if: ${{(steps.kover-tests.outputs.line_coverage) < 80}}
+      shell: bash
+      run: exit "Line coverage expected to be > 80 but was ${{steps.kover-tests.outputs.line_coverage}}"
