@@ -31,9 +31,9 @@ jobs:
         useConfigFile: true
         configFilePath: ./.github/gitversion.yml
     - name: Gradle clean
-      run: ./gradlew clean --info
+      run: ./gradlew clean --info --no-daemon
     - name: Build with Gradle
-      run: ./gradlew -Pversion=${{ steps.gitversion.outputs.SemVer }} build --info
+      run: ./gradlew -Pversion=${{ steps.gitversion.outputs.SemVer }} build --info --no-daemon
     - name: release
       uses: actions/create-release@v1
       id: create_release
