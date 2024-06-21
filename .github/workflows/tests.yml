@@ -20,4 +20,6 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew test
+      run: ./gradlew test --no-daemon -Dorg.gradle.jvmargs="-Xmx512m -XX:MaxMetaspaceSize=256m"
+      env:
+        JAVA_OPTS: "-Xmx512m -XX:MaxMetaspaceSize=256m"
